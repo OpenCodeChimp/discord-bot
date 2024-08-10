@@ -5,8 +5,8 @@ import { TrpcRouter } from '@bot/trpc/trpc.router';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
-  const trpc = app.get(TrpcRouter);
+  const trpc = app.get(TrpcRouter, { strict: false });
   trpc.applyMiddleware(app);
-  await app.listen(8080);
+  await app.listen(4000);
 }
 bootstrap();
